@@ -16,7 +16,7 @@ import java.util.ArrayList; // import the ArrayList class
 
 public class ContactList {
     private ArrayList<Contact> contacts;
-    private String FILENAME;
+    private String FILENAME = "contacts.sav";
 
     public ContactList () {
         this.contacts = new ArrayList<Contact>();
@@ -49,7 +49,10 @@ public class ContactList {
     }
 
     public Contact getContact(Integer index) {
-        return this.contacts.get(index);
+        if (index >=0 && index < this.contacts.size()) {
+            return this.contacts.get(index);
+        }
+        return null;
     }
 
     public Integer getSize() {
@@ -78,7 +81,7 @@ public class ContactList {
             FileInputStream fis = context.openFileInput(FILENAME);
             InputStreamReader isr = new InputStreamReader(fis);
             Gson gson = new Gson();
-            Type listType = new TypeToken<ArrayList<Item>>() {}.getType();
+            Type listType = new TypeToken<ArrayList<Contact>>() {}.getType();
             contacts = gson.fromJson(isr, listType); // temporary
             fis.close();
         } catch (FileNotFoundException e) {

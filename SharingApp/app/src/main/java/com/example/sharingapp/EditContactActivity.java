@@ -30,6 +30,9 @@ public class EditContactActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int pos = intent.getIntExtra("position", 0);
+        if (pos == -1) {
+            pos = 0;
+        }
 
         contact = contact_list.getContact(pos);
 

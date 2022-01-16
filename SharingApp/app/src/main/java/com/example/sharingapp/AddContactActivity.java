@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.content.Intent;
 
 /**
  * Add a new contact
@@ -60,6 +61,9 @@ public class AddContactActivity extends AppCompatActivity {
         contact_list.saveContacts(context);
 
         // End AddContactActivity
+//        Intent intent =new Intent(this, EditContactActivity.class);
+//        intent.putExtra("position", 0);
+//        startActivity(intent);
         finish();
     }
 }
